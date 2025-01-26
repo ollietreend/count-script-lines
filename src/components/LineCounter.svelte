@@ -76,7 +76,4 @@
   table {
     width: 100%;
   }
-  h1 {
-    margin-top: 0;
-  }
 </style>
