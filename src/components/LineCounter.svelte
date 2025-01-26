@@ -34,10 +34,8 @@
 </script>
 
 <div class="container">
-  <div class="column">
-    <textarea bind:value={input} placeholder="Paste here..."></textarea>
-  </div>
-  <div class="column">
+  <textarea bind:value={input} placeholder="Paste here..."></textarea>
+  <div>
     <h1>Count lines for characters in a script</h1>
     {#if input.trim() == ""}
       <p>
@@ -70,18 +68,15 @@
 
 <style>
   .container {
-    width: 100%;
-    height: 100vh;
+    margin: 1rem;
     display: grid;
     grid-template-columns: 6fr 4fr;
-  }
-  .column {
-    padding: 1rem;
-  }
-  textarea {
-    height: 100%;
+    grid-gap: 1rem;
   }
   table {
     width: 100%;
+  }
+  h1 {
+    margin-top: 0;
   }
 </style>
