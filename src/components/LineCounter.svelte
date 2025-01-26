@@ -34,8 +34,7 @@
 </script>
 
 <div class="container">
-  <textarea bind:value={input} placeholder="Paste here..."></textarea>
-  <div>
+  <div class="output">
     <h1>Count lines for characters in a script</h1>
     {#if input.trim() == ""}
       <p>
@@ -64,16 +63,31 @@
       </table>
     {/if}
   </div>
+  <textarea class="input" bind:value={input} placeholder="Paste here..."
+  ></textarea>
 </div>
 
 <style>
   .container {
     margin: 1rem;
-    display: grid;
-    grid-template-columns: 6fr 4fr;
-    grid-gap: 1rem;
+    display: block;
+    max-width: 1200px;
+  }
+  @media (min-width: 600px) {
+    .container {
+      display: grid;
+      grid-template-columns: 4fr 6fr;
+      grid-gap: 2rem;
+      margin: 2rem;
+    }
   }
   table {
     width: 100%;
+  }
+  h1 {
+    margin-top: 0;
+  }
+  textarea {
+    min-height: 6em;
   }
 </style>
