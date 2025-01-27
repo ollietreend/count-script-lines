@@ -5,7 +5,7 @@
   const countLines = (text) => {
     const linesByCharacter = {};
 
-    const spokenLine = /^([a-zA-Z0-9\s]+):(.+)$/;
+    const spokenLine = /^([a-zA-Z0-9-\s]+):(.+)$/;
 
     const lines = text.split("\n").map((line) => line.trim());
 
@@ -89,14 +89,22 @@
   .container {
     margin: 1rem;
     display: block;
-    max-width: 1200px;
   }
-  @media (min-width: 600px) {
+  @media (min-width: 40rem) {
     .container {
-      display: grid;
-      grid-template-columns: 4fr 6fr;
-      grid-gap: 2rem;
+      display: flex;
+      flex-grow: 1;
       margin: 2rem;
+      gap: 2rem;
+    }
+    .output {
+      flex-basis: 26rem;
+      flex-grow: 0;
+    }
+
+    .input {
+      flex-grow: 1;
+      flex-basis: 26rem;
     }
   }
   table {
