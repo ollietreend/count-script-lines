@@ -5,7 +5,7 @@
   const countLines = (text) => {
     const linesByCharacter = {};
 
-    const spokenLine = /^([a-zA-Z0-9-\s]+):(.+)$/;
+    const spokenLine = /^([^:]+):(.+)$/;
 
     const lines = text.split("\n").map((line) => line.trim());
 
