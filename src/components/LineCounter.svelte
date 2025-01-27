@@ -31,6 +31,16 @@
 
     return linesByCharacter;
   };
+
+  $: totalCharacters = Object.keys(output).length;
+  $: totalLines = Object.values(output).reduce(
+    (total, { lines }) => total + lines,
+    0
+  );
+  $: totalWords = Object.values(output).reduce(
+    (total, { words }) => total + words,
+    0
+  );
 </script>
 
 <div class="container">
@@ -40,9 +50,10 @@
       <p>
         Paste a script to see the number of lines and words each character has.
       </p>
-    {:else if Object.keys(output).length == 0}
+    {:else if totalCharacters == 0}
       <p>No characters found in the text.</p>
     {:else}
+      <p>This script has <strong>{totalCharacters} characters</strong>:</p>
       <table>
         <thead>
           <tr>
@@ -60,6 +71,13 @@
             </tr>
           {/each}
         </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td>{totalLines}</td>
+            <td>{totalWords}</td>
+          </tr>
+        </tfoot>
       </table>
     {/if}
   </div>
@@ -83,6 +101,9 @@
   }
   table {
     width: 100%;
+  }
+  tfoot {
+    font-weight: bold;
   }
   h1 {
     margin-top: 0;
